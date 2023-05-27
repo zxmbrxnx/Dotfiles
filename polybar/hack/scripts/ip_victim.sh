@@ -1,1 +1,1 @@
-echo "$(tail /home/jzambrano/.config/polybar/hack/scripts/victima.txt)" | tr -d '\n' | xclip -sel clip
+echo "$(tail ~/.config/polybar/hack/scripts/victima.txt)" | tr -d '\n' | xclip -sel clip
