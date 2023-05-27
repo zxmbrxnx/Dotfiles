@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo " %{u-}$(tail /home/jzambrano/.config/polybar/hack/scripts/victima.txt)"
+echo " %{u-}$(tail ~/.config/polybar/hack/scripts/victima.txt)"
