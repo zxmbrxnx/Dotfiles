@@ -11,14 +11,23 @@ launch_bar() {
 	while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 	# Launch the bar
-	if [[ "$style" == "hack" || "$style" == "cuts" ]]; then
+	if ["$style" == "hack"]; then
 		polybar -q top -c "$dir/$style/config.ini" &
-		polybar -q bottom -c "$dir/$style/config.ini" &
+		#polybar -q bottom -c "$dir/$style/config.ini" &
+	else
+		polybar -q main -c "$dir/$style/config.ini" &
 	fi
 }
 
 if [[ "$1" == "--hack" ]]; then
 	style="hack"
+	launch_bar
+
+elif [[ "$1" == "--grayblocks" ]]; then
+	style="grayblocks"
+	launch_bar
+elif [[ "$1" == "--shapes" ]]; then
+	style="shapes"
 	launch_bar
 
 else
@@ -27,6 +36,6 @@ else
 		
 	Available Themes :
 
-	--hack
+	--hack	--grayblocks --shapes
 	EOF
 fi
