@@ -29,6 +29,12 @@ elif [[ "$1" == "--grayblocks" ]]; then
 elif [[ "$1" == "--shapes" ]]; then
 	style="shapes"
 	launch_bar
+elif [[ "$1" == "--zxmbrxnx" ]]; then
+	style="zxmbrxnx"
+	launch_bar
+elif [[ "$1" == "--forest" ]]; then
+	style="forest"
+	launch_bar
 
 else
 	cat <<- EOF
@@ -36,6 +42,6 @@ else
 		
 	Available Themes :
 
-	--hack	--grayblocks --shapes
+	--hack	--grayblocks --shapes --zxmbrxnx --forest
 	EOF
 fi
