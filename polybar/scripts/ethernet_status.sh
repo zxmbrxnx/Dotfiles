@@ -1,3 +1,3 @@
 #!/bin/sh
  
-echo " $(/usr/sbin/ifconfig ens33 | grep "inet " | awk '{print $2}')"
+echo " $(/usr/sbin/ifconfig enp2s0 | grep "inet " | awk '{print $2}')"

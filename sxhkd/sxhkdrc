@@ -9,16 +9,39 @@ super + Return
 # program launcher
 
 super + d
-  ~/.config/polybar/hack/scripts/launcher.sh &
+  ~/.config/polybar/zxmbrxnx/scripts/launcher.sh &
 
 super + a
-  ~/.config/polybar/hack/scripts/powermenu.sh &
+  ~/.config/polybar/zxmbrxnx/scripts/powermenu.sh &
 
 super + shift + f
-    firefox
+	firefox
+
+super + l 
+	i3lock-fancy-dualmonitor -gp
 
 super + shift + s
-  flameshot gui
+	flameshot gui
+
+# Mi teclado
+XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPrev
+	playerctl previous
+
+XF86AudioRaiseVolume
+	playerctl -a volume 0.05+
+
+XF86AudioLowerVolume
+	playerctl -a volume 0.05-
+# Fin teclado
+
+super + v
+	copyq menu
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -33,7 +56,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -63,6 +86,15 @@ super + ctrl + {m,x,y,z}
 #
 # focus/swap
 #
+
+super + shift + i
+	bspc node $1 --flag sticky=on; bspc node $1 --flag hidden=on
+
+super + shift + o
+	bspc node $(bspc query -N -n .hidden.local.window) --flag hidden=off
+
+super + shift + u
+	~/.config/bspwm/scripts/minimize.sh
 
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
