@@ -43,7 +43,7 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source /home/jzambrano/powerlevel10k/powerlevel10k.zsh-theme
+source /home/zxmbrxnx/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -53,13 +53,13 @@ source /home/jzambrano/powerlevel10k/powerlevel10k.zsh-theme
 PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 # Manual aliases
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
-alias cat='bat'
-alias grep='grep --color=always'
+#alias ll='lsd -lh --group-dirs=first'
+#alias la='lsd -a --group-dirs=first'
+#alias l='lsd --group-dirs=first'
+#alias lla='lsd -lha --group-dirs=first'
+#alias ls='lsd --group-dirs=first'
+#alias cat='bat'
+#alias grep='grep --color=always'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Plugins
@@ -73,11 +73,19 @@ function mkt(){
 }
 
 function addVictim(){
-	echo $1 > ~/.config/polybar/hack/scripts/victima.txt
+	echo $1 > ~/.config/polybar/scripts/victima.txt
 }
 
 function delVictim(){
-	echo " No machine" > ~/.config/polybar/hack/scripts/victima.txt
+	echo " No machine" > ~/.config/polybar/scripts/victima.txt
+}
+
+function scanIP(){
+	sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts
+}
+
+function scanPorts(){
+	nmap -sCV -p$2 $1 -oN targeted
 }
 
 # Extract nmap information
@@ -138,3 +146,7 @@ function rmk(){
 
 # Created by `pipx` on 2022-09-29 01:10:24
 export PATH="$PATH:/root/.local/bin"
+. "/home/zxmbrxnx/.cargo/env"
+
+# opencode
+export PATH=/home/zxmbrxnx/.opencode/bin:$PATH

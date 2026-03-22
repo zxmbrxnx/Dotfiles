@@ -8,8 +8,8 @@ xrandr --output "eDP" --auto --output "HDMI-1-0" --left-of "eDP"
 pkill dunst
 dunst -conf ~/.config/dunst/dunstrc &
 
-bspc monitor HDMI-1-0 -d I II III IV V VI VII VII IX X
-#bspc monitor eDP -d I II III IV V VI VII VII IX X
+bspc monitor Virtual1 -d I II III IV V VI VII
+bspc monitor eDP -d VIII IX X
 
 #bspc config border_width         2
 bspc config window_gap            6
@@ -32,7 +32,7 @@ bspc rule -a Screenkey manage=off
 
 
 #background
-feh --no-fehbg --bg-fill /home/zxmbrxnx/Escritorio/fondos/fondo2.jpg
+feh --no-fehbg --bg-fill /home/zxmbrxnx/Downloads/Dotfiles/fondos/fondo2.jpg
 
 #Polybar
 bash ~/.config/polybar/launch.sh --zxmbrxnx
@@ -51,6 +51,6 @@ copyq &
 #Active hostpot
 
 #nmcli connection up Hotspot &
-ufw disable
-#vm-ware
-#vmware-user-suid-wrapper
+#ufw disable
+vm-ware
+vmware-user-suid-wrapper
